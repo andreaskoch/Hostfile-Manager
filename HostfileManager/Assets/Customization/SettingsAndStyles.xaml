@@ -1,0 +1,102 @@
+﻿<!-- Application Settings and global Styles -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:my="clr-namespace:System;assembly=mscorlib"
+                    xmlns:Logic="clr-namespace:HostfileManager.Logic">
+    
+    <my:String x:Key="ApplicationTitle">Hostfile Manager</my:String>
+    <my:String x:Key="ApplicationCopyright">Andreas Koch ©  2011</my:String>
+    <my:String x:Key="ApplicationIcon">pack://application:,,/Icon.ico</my:String>
+    <SolidColorBrush x:Key="ApplicationWindowBackgroundColor">#FFE7F2DC</SolidColorBrush>
+    
+    <my:Char x:Key="ApplicationLanguagesSeperator">,</my:Char>
+    <my:String x:Key="ApplicationDefaultLanguage">en-US,de-DE</my:String>
+    <my:String x:Key="ApplicationLanguages">en-US,de-DE</my:String>
+
+    <SolidColorBrush x:Key="MenuContainerBackgroundColor">#FFB9C4A8</SolidColorBrush>
+    <SolidColorBrush x:Key="MenuContainerBorderColor">#FFB9C4A8</SolidColorBrush>
+    <Thickness x:Key="MenuContainerBorderThickness">0,0,0,1</Thickness>
+    <SolidColorBrush x:Key="MenuBackgroundColor">#FFD6E2CA</SolidColorBrush>
+
+    <SolidColorBrush x:Key="StatusBarForegroundColor">#FF1A2B07</SolidColorBrush>
+    <SolidColorBrush x:Key="StatusBarBackgroundColor">#FFD6E2CA</SolidColorBrush>
+    <SolidColorBrush x:Key="StatusBarBorderColor">#FFB9C4A8</SolidColorBrush>
+    <Thickness x:Key="StatusBarBorderThickness">0,1,0,0</Thickness>
+
+    <SolidColorBrush x:Key="DialogWindowBackgroundColor">#FFB9C4A8</SolidColorBrush>
+    
+    <Color x:Key="HostsGroupColorActive">#FF009B00</Color>
+    <Color x:Key="HostsGroupColorInActive">#FFFF0000</Color>
+    <Thickness x:Key="ViewContainerMargin">10,10,10,50</Thickness>
+    <Thickness x:Key="ViewContainerPadding">20,0,20,0</Thickness>
+
+    <!-- Color Converter for the Group Status Background Color -->
+    <Logic:ActiveRateToColorConverter x:Key="ActiveStateToColorConverter"/>
+
+    <!-- Item-Status Color -->
+    <Style x:Key="ItemStatusBorderStyle" TargetType="Border">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=IsActive}" Value="True">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <SolidColorBrush Color="{DynamicResource HostsGroupColorActive}"></SolidColorBrush>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Path=IsActive}" Value="False">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <SolidColorBrush Color="{DynamicResource HostsGroupColorInActive}"></SolidColorBrush>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Toggle Buttons -->
+    <Style TargetType="{x:Type ToggleButton}" x:Key="ToggleGroupModeButtonStyle">
+        <Setter Property="Content" Value="{DynamicResource btnToggleModeText_Disabled}"/>
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Content" Value="{DynamicResource btnToggleModeText_Enabled}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Activatable Item Status Color -->
+    <LinearGradientBrush x:Key="ActivatableItemBackgroundLinearGradientBrush" EndPoint="1,0.5" StartPoint="0,0.5">
+        <GradientStop Color="{DynamicResource HostsGroupColorInActive}" Offset="0"></GradientStop>
+        <GradientStop Color="{DynamicResource HostsGroupColorActive}" Offset="1"></GradientStop>
+    </LinearGradientBrush>
+
+    <!-- Toggle Group Status button style -->
+    <Style x:Key="ToggleGroupStatusButtonStyle" TargetType="Button">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=IsActive}" Value="True">
+                <Setter Property="Content" Value="{DynamicResource btnToggleGroupStatusOn_Content}" />
+                <Setter Property="ToolTip" Value="{DynamicResource btnToggleGroupStatusOn_ToolTip}" />
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Path=IsActive}" Value="False">
+                <Setter Property="Content" Value="{DynamicResource btnToggleGroupStatusOff_Content}"/>
+                <Setter Property="ToolTip" Value="{DynamicResource btnToggleGroupStatusOff_ToolTip}"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+           
+    <!-- Toggle Host Status button style -->
+    <Style x:Key="ToggleHostStatusButtonStyle" TargetType="Button">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=IsActive}" Value="True">
+                <Setter Property="Content" Value="{DynamicResource btnToggleHostStatusOn_Content}" />
+                <Setter Property="ToolTip" Value="{DynamicResource btnToggleHostStatusOn_ToolTip}" />
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Path=IsActive}" Value="False">
+                <Setter Property="Content" Value="{DynamicResource btnToggleHostStatusOff_Content}"/>
+                <Setter Property="ToolTip" Value="{DynamicResource btnToggleHostStatusOff_ToolTip}"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

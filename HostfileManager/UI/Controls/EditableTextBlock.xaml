@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="HostfileManager.UI.Controls.EditableTextBlock"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             x:Name="EditableTextBlockUserControl">
+    <Grid>
+        
+        <!-- Placeholder Text -->
+        <TextBlock Name="txtEmptyTextPlaceholder" Text="{Binding ElementName=EditableTextBlockUserControl, Path=PlaceholderText}" MouseLeftButtonDown="TxtBlockMouseLeftButtonDown">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=txtBlock,Path=Text}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
+        <!-- Display text block -->
+        <TextBlock Name="txtBlock" Text="{Binding ElementName=EditableTextBlockUserControl, Path=Text}" FontSize="{Binding ElementName=EditableTextBlockUserControl, Path=FontSize}" Visibility="Visible" MouseLeftButtonDown="TxtBlockMouseLeftButtonDown" />
+        
+        <!-- Edit text block -->
+        <TextBox Name="txtBox" Text="{Binding ElementName=EditableTextBlockUserControl, Path=Text, UpdateSourceTrigger=PropertyChanged}" FontSize="{Binding ElementName=EditableTextBlockUserControl, Path=FontSize}" Visibility="Collapsed" KeyDown="TxtBoxKeyDown">
+            <TextBox.Resources>
+                <VisualBrush x:Key="BackgroundBrush" TileMode="None" Stretch="None" AlignmentX="Left">
+                    <VisualBrush.Visual>
+                        <StackPanel Background="White" HorizontalAlignment="Stretch" Width="300">
+                            <TextBlock FontStyle="Italic" Opacity="0.4" Text="{Binding ElementName=EditableTextBlockUserControl, Path=BackgroundText}"/>
+                        </StackPanel>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </TextBox.Resources>
+            
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource BackgroundBrush}"/>
+                        </Trigger>
+                        <Trigger Property="Text" Value="">
+                            <Setter Property="Background" Value="{StaticResource BackgroundBrush}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        
+    </Grid>
+</UserControl>

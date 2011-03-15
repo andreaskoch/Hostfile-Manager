@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="HostfileManager.View.TextEditorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Views="clr-namespace:HostfileManager.View"
+			 mc:Ignorable="d" d:DesignHeight="395" d:DesignWidth="545">
+    <UserControl.CommandBindings>
+        <CommandBinding Command="Views:TextEditorView.InitializeTextEditorCommand" CanExecute="CommandBindingInitializeTextEditorCanExecute" Executed="CommandBindingInitializeTextEditorExecuted"/>
+        <CommandBinding Command="Views:TextEditorView.ClearTextEditorContentCommand" CanExecute="CommandBindingClearContentCanExecute" Executed="CommandBindingClearContentExecuted"/>
+        <CommandBinding Command="Views:TextEditorView.RestoreDefaultCommand" CanExecute="CommandBindingRestoreDefaultHostsFileCanExecute" Executed="CommandBindingRestoreDefaultHostsFileExecuted"/>
+        <CommandBinding Command="Views:TextEditorView.ReloadFromDiskCommand" CanExecute="CommandBindingReloadFromDiskCanExecute" Executed="CommandBindingReloadFromDiskExecuted"/>
+        <CommandBinding Command="Views:TextEditorView.SaveChangesCommand" CanExecute="CommandBindingSaveChangesCanExecute" Executed="CommandBindingSaveChangesExecuted"/>
+    </UserControl.CommandBindings>
+    
+    <Grid>        
+        <Grid.Height>
+            <Binding Path="ActualHeight" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}"/>
+        </Grid.Height>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="650*"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Margin="{StaticResource ViewContainerMargin}" Padding="{StaticResource ViewContainerPadding}">
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140"></ColumnDefinition>
+                    <ColumnDefinition Width="400*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <StackPanel Grid.Column="0">
+                    <Button Width="125" Content="{StaticResource btnTextEditorMenu_SaveChanges_Content}" ToolTip="{StaticResource btnTextEditorMenu_SaveChanges_ToolTip}" Command="Views:TextEditorView.SaveChangesCommand" HorizontalContentAlignment="Center" HorizontalAlignment="Left"></Button>
+                    <Button Width="125" Content="{StaticResource btnTextEditorMenu_ReloadFromDisk_Content}" ToolTip="{StaticResource btnTextEditorMenu_ReloadFromDisk_ToolTip}" Command="Views:TextEditorView.ReloadFromDiskCommand" HorizontalContentAlignment="Center" HorizontalAlignment="Left"></Button>
+                    <Button Width="125" Content="{StaticResource btnTextEditorMenu_ClearTextEditor_Content}" ToolTip="{StaticResource btnTextEditorMenu_ClearTextEditor_ToolTip}" Command="Views:TextEditorView.ClearTextEditorContentCommand" HorizontalContentAlignment="Center" HorizontalAlignment="Left"></Button>
+                </StackPanel>
+
+                <TextBox Grid.Column="1" AcceptsReturn="True" AcceptsTab="True" Name="txtHostsFileContent" Text="{Binding HostFileInstance.Text}" Margin="0,0,0,75" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" FontSize="16" BorderBrush="Transparent" Background="White">
+                    
+                    <TextBox.InputBindings>
+                        <KeyBinding Command="Views:TextEditorView.SaveChangesCommand" Key="S" Modifiers="Ctrl"/>
+                        <KeyBinding Command="Views:TextEditorView.ReloadFromDiskCommand" Key="F5"/>
+                    </TextBox.InputBindings>
+
+                    <!-- Empty Template -->
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource Self}}" Value="">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+
+                                                <Border HorizontalAlignment="Center" VerticalAlignment="Center" Width="350">
+
+                                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                                        <StackPanel HorizontalAlignment="Center" Margin="0,0,0,15">
+                                                            <TextBlock Text="{StaticResource txtTextViewEmptyText_NoText}" TextWrapping="Wrap" FontSize="16" />
+                                                        </StackPanel>
+
+                                                        <StackPanel HorizontalAlignment="Center" Opacity="0.75">
+                                                            <TextBlock Text="{StaticResource txtTextViewEmptyText_Hint}" TextWrapping="Wrap" FontSize="14">
+                                                                <TextBlock.InputBindings>
+                                                                    <MouseBinding Gesture="LeftClick" Command="Views:TextEditorView.InitializeTextEditorCommand" CommandParameter="{StaticResource txtTextViewEmptyText_InitializationText}" />
+                                                                </TextBlock.InputBindings>
+                                                            </TextBlock>
+
+                                                            <WrapPanel Margin="10,10,0,0">
+                                                                <Button Content="{StaticResource txtTextViewEmptyText_Button_RestoreDefaultHostsFile}" Margin="0,0,0,0" Command="Views:TextEditorView.RestoreDefaultCommand" FontSize="12" />
+                                                            </WrapPanel>
+                                                        </StackPanel>
+
+                                                    </StackPanel>
+
+                                                </Border>
+
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+
+                </TextBox>
+
+            </Grid>
+        </Border>
+
+    </Grid>
+</UserControl>

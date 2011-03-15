@@ -1,0 +1,232 @@
+﻿<Window x:Class="HostfileManager.UI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Views="clr-namespace:HostfileManager.View"
+    Closing="WindowClosing" MinHeight="450" MinWidth="600"
+    Title="{StaticResource ApplicationTitle}" Background="{StaticResource ApplicationWindowBackgroundColor}"
+    mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:UI="clr-namespace:HostfileManager.UI">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="UI:MainWindow.ReloadFromDiskCommand" CanExecute="CommandBindingReloadFromDiskCanExecute" Executed="CommandBindingReloadFromDiskExecuted" />
+        <CommandBinding Command="UI:MainWindow.CopyToClipboardCommand" CanExecute="CommandBindingCopyToClipboardCanExecute" Executed="CommandBindingCopyToClipboardExecuted" />
+        <CommandBinding Command="UI:MainWindow.SaveToHostsFileCommand" CanExecute="CommandBindingSaveToHostsFileCanExecute" Executed="CommandBindingSaveToHostsFileExecuted" />
+        <CommandBinding Command="UI:MainWindow.SaveChangesCommand" CanExecute="CommandBindingSaveChangesCanExecute" Executed="CommandBindingSaveChangesExecuted" />
+        <CommandBinding Command="UI:MainWindow.LoadSpecificProfileCommand" CanExecute="CommandBindingLoadSpecificProfileCanExecute" Executed="CommandBindingLoadSpecificProfileExecuted" />
+        <CommandBinding Command="UI:MainWindow.SaveNewProfileCommand" CanExecute="CommandBindingSaveNewProfileCanExecute" Executed="CommandBindingSaveNewProfileExecuted" />
+        <CommandBinding Command="UI:MainWindow.OverwriteSpecificProfileCommand" CanExecute="CommandBindingOverwriteSpecificProfileCanExecute" Executed="CommandBindingOverwriteSpecificProfileExecuted" />
+        <CommandBinding Command="UI:MainWindow.DeleteAllProfilesCommand" CanExecute="CommandBindingDeleteAllProfilesCanExecute" Executed="CommandBindingDeleteAllProfilesExecuted" />
+        <CommandBinding Command="UI:MainWindow.DeleteSpecificProfileCommand" CanExecute="CommandBindingDeleteSpecificProfileCanExecute" Executed="CommandBindingDeleteSpecificProfileExecuted" />
+        <CommandBinding Command="UI:MainWindow.ExitCommand" CanExecute="CommandBindingExitCanExecute" Executed="CommandBindingExitExecuted" />
+        <CommandBinding Command="UI:MainWindow.ChangeUiLanguageCommand" CanExecute="CommandBindingChangeUiLanguageCanExecute" Executed="CommandBindingChangeUiLanguageExecuted" />
+        <CommandBinding Command="UI:MainWindow.ShowAboutBoxCommand" CanExecute="CommandBindingShowAboutBoxCanExecute" Executed="CommandBindingShowAboutBoxExecuted" />
+
+        <CommandBinding Command="UI:MainWindow.SwitchToOverviewCommand" CanExecute="CommandBindingSwitchViewCanExecute" Executed="CommandBindingSwitchToOverviewExecuted" />
+        <CommandBinding Command="UI:MainWindow.SwitchToEditorViewCommand" CanExecute="CommandBindingSwitchViewCanExecute" Executed="CommandBindingSwitchToEditorExecuted" />
+        <CommandBinding Command="UI:MainWindow.SwitchToTextEditorCommand" CanExecute="CommandBindingSwitchViewCanExecute" Executed="CommandBindingSwitchToTextEditorExecuted" />
+    </Window.CommandBindings>
+
+    <Window.Resources>
+        
+        <!-- Multi View Data Template -->
+        <DataTemplate x:Key="multiViewDataTemplate">
+
+            <StackPanel>
+                <Views:QuickToggleView x:Name="viewGroupOverview" DataContext="{Binding InnerViewModel}" Visibility="Visible" />
+                <Views:EditorView x:Name="viewGroupEditor" DataContext="{Binding InnerViewModel}" Visibility="Collapsed" />
+                <Views:TextEditorView x:Name="viewTextEditor" DataContext="{Binding InnerViewModel}" Visibility="Collapsed" />
+            </StackPanel>
+
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding InnerViewMode}" Value="Overview">
+                    <Setter TargetName="viewGroupOverview" Property="Visibility" Value="Visible"></Setter>
+                    <Setter TargetName="viewGroupEditor" Property="Visibility" Value="Collapsed"></Setter>
+                    <Setter TargetName="viewTextEditor" Property="Visibility" Value="Collapsed"></Setter>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding InnerViewMode}" Value="Editor">
+                    <Setter TargetName="viewGroupOverview" Property="Visibility" Value="Collapsed"></Setter>
+                    <Setter TargetName="viewGroupEditor" Property="Visibility" Value="Visible"></Setter>
+                    <Setter TargetName="viewTextEditor" Property="Visibility" Value="Collapsed"></Setter>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding InnerViewMode}" Value="TextEditor">
+                    <Setter TargetName="viewGroupOverview" Property="Visibility" Value="Collapsed"></Setter>
+                    <Setter TargetName="viewGroupEditor" Property="Visibility" Value="Collapsed"></Setter>
+                    <Setter TargetName="viewTextEditor" Property="Visibility" Value="Visible"></Setter>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+
+        </DataTemplate>
+
+    </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Command="UI:MainWindow.SwitchToOverviewCommand" Key="D1" Modifiers="Ctrl"/>
+        <KeyBinding Command="UI:MainWindow.SwitchToEditorViewCommand" Key="D2" Modifiers="Ctrl"/>
+        <KeyBinding Command="UI:MainWindow.SwitchToTextEditorCommand" Key="D3" Modifiers="Ctrl"/>
+        
+        <KeyBinding Command="UI:MainWindow.CopyToClipboardCommand" Key="C" Modifiers="Ctrl"/>
+        <KeyBinding Command="UI:MainWindow.SaveChangesCommand" Key="S" Modifiers="Ctrl"/>
+        
+        <KeyBinding Command="UI:MainWindow.ShowAboutBoxCommand" Key="F1"/>
+        <KeyBinding Command="UI:MainWindow.ReloadFromDiskCommand" Key="F5"/>
+    </Window.InputBindings>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="400*" />
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            
+            <Border VerticalAlignment="Top" BorderThickness="{StaticResource MenuContainerBorderThickness}" BorderBrush="{StaticResource  MenuContainerBorderColor}" Background="{StaticResource  MenuContainerBackgroundColor}">
+                
+                <Menu Name="MenuMain" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DataContext="{Binding}" Background="Transparent" BorderThickness="0,0,0,1" BorderBrush="#FF808080">
+                    <MenuItem Header="{StaticResource menuItemHeaderFile}" ToolTip="{StaticResource menuItemTooltipFile}">
+
+                        <MenuItem Header="{StaticResource menuItemHeaderFileSaveToHostsFile}" ToolTip="{StaticResource menuItemTooltipFileSaveToHostsFile}" Command="UI:MainWindow.SaveToHostsFileCommand" />
+                        <MenuItem Header="{StaticResource menuItemHeaderFileSaveChanges}" ToolTip="{StaticResource menuItemTooltipFileSaveChanges}" Command="UI:MainWindow.SaveChangesCommand" />
+
+                        <Separator/>
+
+                        <MenuItem Header="{StaticResource menuItemHeaderFileLoadProfile}" ToolTip="{StaticResource menuItemTooltipFileLoadProfile}" ItemsSource="{Binding Profiles}" IsEnabled="{Binding HasProfiles}">
+                            <MenuItem.ItemTemplate>
+                                <DataTemplate>
+                                    <MenuItem Header="{Binding ProfileName}" IsCheckable="False" CommandParameter="{Binding}" Command="UI:MainWindow.LoadSpecificProfileCommand" />
+                                </DataTemplate>
+                            </MenuItem.ItemTemplate>
+                        </MenuItem>
+
+                        <MenuItem Header="{StaticResource menuItemHeaderFileSaveProfile}" ToolTip="{StaticResource menuItemTooltipFileSaveProfile}">
+                            <MenuItem Header="{StaticResource menuItemHeaderFileSaveNewProfile}" ToolTip="{StaticResource menuItemTooltipFileSaveNewProfile}" Command="UI:MainWindow.SaveNewProfileCommand" />
+                            <MenuItem Header="{StaticResource menuItemHeaderFileSaveOverwriteExistingProfile}" ToolTip="{StaticResource menuItemTooltipFileSaveOverwriteExistingProfile}" ItemsSource="{Binding Profiles}" IsEnabled="{Binding HasProfiles}">
+                                <MenuItem.ItemTemplate>
+                                    <DataTemplate>
+                                        <MenuItem Header="{Binding ProfileName}" IsCheckable="False" CommandParameter="{Binding}" Command="UI:MainWindow.OverwriteSpecificProfileCommand" />
+                                    </DataTemplate>
+                                </MenuItem.ItemTemplate>
+                            </MenuItem>
+                        </MenuItem>
+
+                        <MenuItem Header="{StaticResource menuItemHeaderFileDeleteProfile}" ToolTip="{StaticResource menuItemTooltipFileDeleteProfile}" IsEnabled="{Binding HasProfiles}">
+                            <MenuItem Header="{StaticResource menuItemHeaderFileDeleteProfileDeleteAll}" ToolTip="{StaticResource menuItemTooltipFileDeleteProfileDeleteAll}" Command="UI:MainWindow.DeleteAllProfilesCommand" />
+                            <MenuItem Header="{StaticResource menuItemHeaderFileDeleteProfileDeleteSpecific}" ToolTip="{StaticResource menuItemTooltipFileDeleteProfileDeleteSpecific}" ItemsSource="{Binding Profiles}">
+                                <MenuItem.ItemTemplate>
+                                    <DataTemplate>
+                                        <MenuItem Header="{Binding ProfileName}" IsCheckable="False" CommandParameter="{Binding}" Command="UI:MainWindow.DeleteSpecificProfileCommand" />
+                                    </DataTemplate>
+                                </MenuItem.ItemTemplate>
+                            </MenuItem>
+                        </MenuItem>
+
+                        <Separator />
+
+                        <MenuItem Header="{StaticResource menuItemHeaderFileExit}" ToolTip="{StaticResource menuItemTooltipFileExit}" Command="UI:MainWindow.ExitCommand" />
+                    </MenuItem>
+
+                    <MenuItem Header="{StaticResource menuItemHeaderView}" ToolTip="{StaticResource menuItemTooltipView}">
+                        <MenuItem Header="{StaticResource menuItemHeaderSwitchViewToggleView}" ToolTip="{StaticResource menuItemTooltipSwitchViewToggleView}" InputGestureText="Ctrl+1" IsCheckable="true" Command="UI:MainWindow.SwitchToOverviewCommand" IsChecked="{Binding GroupOverviewIsVisible,Mode=OneWay}" />
+                        <MenuItem Header="{StaticResource menuItemHeaderSwitchViewEditor}" ToolTip="{StaticResource menuItemTooltipSwitchViewEditor}" InputGestureText="Ctrl+2" IsCheckable="true" Command="UI:MainWindow.SwitchToEditorViewCommand" IsChecked="{Binding GroupEditorIsVisible,Mode=OneWay}" />
+                        <MenuItem Header="{StaticResource menuItemHeaderSwitchViewTextEditor}" ToolTip="{StaticResource menuItemTooltipSwitchViewTextEditor}" InputGestureText="Ctrl+3" IsCheckable="true" Command="UI:MainWindow.SwitchToTextEditorCommand" IsChecked="{Binding TextEditorIsVisible,Mode=OneWay}" />
+                    </MenuItem>
+
+                    <MenuItem Header="{StaticResource menuItemHeaderHelp}">
+                        <MenuItem Header="{StaticResource menuItemHeaderSelectLanguage}" ItemsSource="{Binding Languages}">
+                            <MenuItem.ItemTemplate>
+                                <DataTemplate>
+                                    <MenuItem Header="{Binding DisplayName}" Command="UI:MainWindow.ChangeUiLanguageCommand" CommandParameter="{Binding}" IsCheckable="False" IsChecked="{Binding Path=IsActiveLanguage, Mode=OneTime}">
+                                    </MenuItem>
+                                </DataTemplate>
+                            </MenuItem.ItemTemplate>
+                        </MenuItem>
+                    
+                        <MenuItem Header="{StaticResource menuItemHeaderHelpAboutApplication}" ToolTip="{StaticResource menuItemTooltipHelpAboutApplication}" Command="UI:MainWindow.ShowAboutBoxCommand" IsCheckable="False" />
+                    </MenuItem>
+                </Menu>
+                
+            </Border>
+            
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1">
+            
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD0DEBF" Offset="0" />
+                    <GradientStop Color="#FFE7F2DC" Offset="1" />
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            
+            <ToolBarTray AllowDrop="False" ToolBarTray.IsLocked="True" ToolBar.OverflowMode="Never" Background="Transparent" Margin="10,5,10,5">
+                
+                <!-- Toolbar: View Modes -->
+                <ToolBar Band="1" BandIndex="1" AllowDrop="False" Background="#91C5D1B4" BorderBrush="Gray" BorderThickness="1" Padding="5,2,5,2">
+                    <TextBlock Text="{Binding Source={StaticResource MainWindowToolBar_ViewModes_ToolbarLabel}, StringFormat={}{0}:}" VerticalAlignment="Center" Margin="0,0,10,0" Opacity="0.55"></TextBlock>
+
+                    <ToggleButton ToolTip="{StaticResource MainWindowToolBar_ViewModes_Button_Overview_ToolTip}" Command="UI:MainWindow.SwitchToOverviewCommand" IsChecked="{Binding GroupOverviewIsVisible,Mode=OneWay}" VerticalAlignment="Center" Margin="0,0,5,0">
+                        <ToggleButton.Content>
+                            <ContentControl>
+                                <WrapPanel>
+                                    <Image Source="/Assets/Icons/Overview-16x16.png" Width="16" Height="16" VerticalAlignment="Center" />
+                                    <TextBlock Text="{StaticResource MainWindowToolBar_ViewModes_Button_Overview_Content}" VerticalAlignment="Center" />
+                                </WrapPanel>
+                            </ContentControl>
+                        </ToggleButton.Content>
+                    </ToggleButton>
+                    
+                    <ToggleButton ToolTip="{StaticResource MainWindowToolBar_ViewModes_Button_Editor_ToolTip}" Command="UI:MainWindow.SwitchToEditorViewCommand" IsChecked="{Binding GroupEditorIsVisible,Mode=OneWay}" VerticalAlignment="Center" Margin="0,0,5,0">
+                        <ToggleButton.Content>
+                            <ContentControl>
+                                <WrapPanel>
+                                    <Image Source="/Assets/Icons/Editor-16x16.png" Width="16" Height="16" VerticalAlignment="Center" />
+                                    <TextBlock Text="{StaticResource MainWindowToolBar_ViewModes_Button_Editor_Content}" VerticalAlignment="Center" />
+                                </WrapPanel>
+                            </ContentControl>
+                        </ToggleButton.Content>
+                    </ToggleButton>
+                    
+                    <ToggleButton ToolTip="{StaticResource MainWindowToolBar_ViewModes_Button_TextEditor_ToolTip}" Command="UI:MainWindow.SwitchToTextEditorCommand" IsChecked="{Binding TextEditorIsVisible,Mode=OneWay}" VerticalAlignment="Center" Margin="0,0,5,0">
+                        <ToggleButton.Content>
+                            <ContentControl>
+                                <WrapPanel>
+                                    <Image Source="/Assets/Icons/Text-Editor-16x16.png" Width="16" Height="16" VerticalAlignment="Center" />
+                                    <TextBlock Text="{StaticResource MainWindowToolBar_ViewModes_Button_TextEditor_Content}" VerticalAlignment="Center" />
+                                </WrapPanel>
+                            </ContentControl>
+                        </ToggleButton.Content>
+                    </ToggleButton>
+                </ToolBar>
+                
+            </ToolBarTray>
+            
+        </StackPanel>
+
+        <StackPanel Grid.Row="2">
+
+            <ContentPresenter ContentTemplate="{StaticResource multiViewDataTemplate}" Content="{Binding}"/>
+            
+        </StackPanel>
+
+        <Border Grid.Row="3" Height="35" VerticalAlignment="Bottom" BorderThickness="{StaticResource StatusBarBorderThickness}" BorderBrush="{StaticResource StatusBarBorderColor}" Background="{StaticResource StatusBarBackgroundColor}">
+            <Grid Margin="5" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="200*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" Margin="0,3,0,0" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="{StaticResource StatusBarForegroundColor}" Text="{StaticResource StatusBarLabelTargetPath}" />
+
+                <StackPanel Grid.Column="1">
+                    <ComboBox Style="{DynamicResource ComboBoxStyle}" ItemsSource="{Binding TargetFiles, Mode=OneWay}" SelectedValue="{Binding TargetFilePath, Mode=OneWay}" SelectionChanged="FileListSelectionChanged" BorderThickness="0" BorderBrush="Transparent" Background="Transparent" VerticalAlignment="Center">
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+
+        </Border>
+
+    </Grid>
+</Window>

@@ -1,0 +1,67 @@
+﻿<Window x:Class="HostfileManager.UI.Dialogs.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Dialogs="clr-namespace:HostfileManager.UI.Dialogs"
+        xmlns:logic="clr-namespace:HostfileManager.Logic"
+        Title="About" Height="280" Width="350" Background="{StaticResource DialogWindowBackgroundColor}"
+        ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow">
+    <Window.Resources>
+        <logic:StringToUriConverter x:Key="stringToUriConverter" />
+    </Window.Resources>
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="Dialogs:About.ExitCommand" CanExecute="CommandBindingExitCanExecute" Executed="CommandBindingExitExecuted" />
+    </Window.CommandBindings>
+    
+    <Window.InputBindings>
+        <KeyBinding Command="Dialogs:About.ExitCommand" Key="Escape"/>
+        <KeyBinding Command="Dialogs:About.ExitCommand" Key="Enter"/>
+    </Window.InputBindings>
+    
+    <StackPanel Margin="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="128" />
+                <ColumnDefinition Width="300*" />
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="128" />
+                <RowDefinition Height="140*"/>
+            </Grid.RowDefinitions>
+        
+            <StackPanel Grid.Column="0" Grid.Row="0">
+                <Image Width="128" Height="128" Source="{Binding Source={StaticResource ApplicationIcon}, Converter={StaticResource stringToUriConverter}}" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="0" Margin="5,0,0,0">
+                <StackPanel>
+                    <TextBlock Text="{StaticResource AboutWindowApplicationTitle}" FontSize="16" FontWeight="Bold" FontFamily="Tahoma" />
+                    <TextBlock Text="{Binding AssemblyVersion}" FontSize="12" FontFamily="Tahoma"/>
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Left" Margin="0,10,0,0">
+                    <TextBlock Text="{StaticResource AboutWindowApplicationDescription}" TextWrapping="Wrap" />
+                </StackPanel>
+            </StackPanel>
+            
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+                
+                <StackPanel Margin="0,15,0,0">
+                    <TextBlock TextWrapping="Wrap">
+                        <TextBlock Text="{StaticResource AboutWindowApplicationWebsiteHint}" TextWrapping="Wrap"></TextBlock>
+                        <Hyperlink RequestNavigate="HyperlinkRequestNavigate" NavigateUri="{Binding Source={StaticResource AboutWindowApplicationUrl}, Converter={StaticResource stringToUriConverter}}">
+                            <TextBlock Text="{StaticResource AboutWindowApplicationUrlText}"/>
+                        </Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                
+                <StackPanel HorizontalAlignment="Left" Margin="0,10,0,0">
+                    <TextBlock FontSize="12" FontFamily="Tahoma" Text="{StaticResource AboutWindowApplicationDeveloper}" TextWrapping="Wrap"/>
+                </StackPanel>
+                
+            </StackPanel>
+            
+        </Grid>
+    </StackPanel>
+</Window>

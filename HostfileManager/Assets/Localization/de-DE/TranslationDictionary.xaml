@@ -1,0 +1,250 @@
+﻿<!-- Hostfile Manager Translations: de-DE -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:my="clr-namespace:System;assembly=mscorlib">
+    <my:String x:Key="AboutWindowApplicationTitle">Hostfile Manager</my:String>
+    <my:String x:Key="AboutWindowApplicationDescription">Der Hostfile Manager ist eine kostenlose und einfache .NET basierte WPF Anwendung die es Ihnen ermöglicht Ihre lokale Hosts-Datei zu visualisieren, zu editieren und zu verwalten.</my:String>
+    <my:String x:Key="AboutWindowApplicationDeveloper" xml:space="preserve">Mahalo&#x0a; &#x2013; Andreas Koch</my:String>
+    <my:String x:Key="AboutWindowApplicationWebsiteHint">Für weitere Informationen zum Hostfile Manager besuchen Sie die Webseite zum Tool:</my:String>
+    <my:String x:Key="AboutWindowApplicationUrl">http://andykdocs.de/andykdocs/document/Windows-Hostfile-Manager</my:String>
+    <my:String x:Key="AboutWindowApplicationUrlText">http://andykdocs.de/Windows-Hostfile-Manager</my:String>
+
+    <my:String x:Key="Hostfile_DefaultText" xml:space="preserve"># Copyright (c) 1993-1999 Microsoft Corp.
+# 
+# Dies ist eine Beispielhostdatei, die von Microsoft TCP/IP für Windows verwendet wird.
+# 
+# Die Datei enthält die Zuordnungen der IP-Adressen zu Hostnamen. Jeder
+# Eintrag sollte in einer eigenen Zeile stehen. Die IP-Adresse sollte
+# in die erste Spalte geschrieben werden, gefolgt vom entsprechenden Hostnamen.
+# Die IP-Adresse und der Hostname sollten durch mindestens ein
+# Leerzeichen getrennt sein.
+#
+# Außerdem können Kommentare (wie diese) in einzelne
+# Zeilen geschrieben oder nach dem Computernamen eingefügt werden, gekennzeichnet durch ein '#'-Symbol.
+#
+# Zum Beispiel:
+
+# Quellserver
+# 102.54.94.97     rhino.acme.com
+
+# x Client Host
+# 38.25.63.10     x.acme.com
+
+# Diese Maschine
+127.0.0.1       localhost localhost.com www.localhost.com ich
+
+</my:String>
+
+    <my:String x:Key="HostsGroupName_Default">Allgemein</my:String>
+    <my:String x:Key="HostIp_Default">127.0.0.1</my:String>
+    <my:String x:Key="DomainName_Default">beispiel-domain.de</my:String>
+    <my:String x:Key="CommentValue_Default">Lorem Ipsum</my:String>
+
+    <my:String x:Key="jumplistGroupLoadProfile">Hostfile-Profil laden</my:String>
+    <my:String x:Key="jumplistGroupActions">Aktionen</my:String>
+
+    <my:String x:Key="jumplistActionTitleLoadProfile">Lade Profil "{0}"</my:String>
+    <my:String x:Key="jumplistActionDescriptionLoadProfile">Lade das Hostfile_Profil "{0}"</my:String>
+
+    <my:String x:Key="jumplistActionTitleOpenProfileDirectory">Profil-Verzeichnis anzeigen</my:String>
+    <my:String x:Key="jumplistActionDescriptionOpenProfileDirectory">Öffnen das Profile-Verzeichnis</my:String>
+
+    <my:String x:Key="jumplistActionTitleResetApplicationSettings">Programm-Einstellungen zurücksetzen</my:String>
+    <my:String x:Key="jumplistActionDescriptionResetApplicationSettings">Lösche alle gespeicherten Programm-Einstellungen.</my:String>
+
+    <my:String x:Key="btnToggleGroupStatusOff_Content">Aktivieren</my:String>
+    <my:String x:Key="btnToggleGroupStatusOff_ToolTip">Diese Gruppe aktivieren</my:String>
+    <my:String x:Key="btnToggleGroupStatusOn_Content">Deaktivieren</my:String>
+    <my:String x:Key="btnToggleGroupStatusOn_ToolTip">Diese Gruppe deaktivieren</my:String>
+
+    <my:String x:Key="btnToggleHostStatusOff_Content">Aktivieren</my:String>
+    <my:String x:Key="btnToggleHostStatusOff_ToolTip">Diesen Host aktivieren</my:String>
+    <my:String x:Key="btnToggleHostStatusOn_Content">Deaktivieren</my:String>
+    <my:String x:Key="btnToggleHostStatusOn_ToolTip">Diesen Host deaktivieren</my:String>
+
+    <my:String x:Key="txtHostfileEditorEntry_Label_Group">Gruppe</my:String>
+    <my:String x:Key="txtHostfileEditorEntry_BackgroundText_Group">Gruppen name</my:String>
+    <my:String x:Key="txtHostfileEditorEntry_BackgroundText_GroupDescription">z.B. Entwicklungebung 01</my:String>
+    <my:String x:Key="txtHostfileEditorEntry_BackgroundText_GroupDescriptionPlaceholder">Irgendeine Gruppe (zum editieren klicken)</my:String>    
+    <my:String x:Key="btnMoveGroupUp_Content">Hoch</my:String>
+    <my:String x:Key="btnMoveGroupUp_ToolTip">Gruppe nach oben bewegen</my:String>
+    <my:String x:Key="btnMoveGroupDown_Content">Runter</my:String>
+    <my:String x:Key="btnMoveGroupDown_ToolTip">Gruppe nach unten bewegen</my:String>
+
+    <my:String x:Key="txtHostfileEditorEntry_Label_Host">Host</my:String>
+    <my:String x:Key="txtHostfileEditorEntry_BackgroundText_Host">z.B. 127.0.0.1</my:String>
+    <my:String x:Key="txtHostfileEditorEntry_BackgroundText_HostDescription">z.B. Entwicklungebung 01</my:String>
+    <my:String x:Key="txtHostfileEditorEntry_BackgroundText_HostDescriptionPlaceholder">Irgendein Host (zum editieren klicken)</my:String>
+    <my:String x:Key="btnMoveHostUp_Content">Hoch</my:String>
+    <my:String x:Key="btnMoveHostUp_ToolTip">Host nach oben bewegen</my:String>
+    <my:String x:Key="btnMoveHostDown_Content">Runter</my:String>
+    <my:String x:Key="btnMoveHostDown_ToolTip">Host nach unten bewegen</my:String>
+
+    <my:String x:Key="txtHostfileEditorEntry_Label_Domain">Domain</my:String>
+    <my:String x:Key="txtHostfileEditorEntry_BackgroundText_Domain">z.B. example.com</my:String>
+    <my:String x:Key="btnMoveDomainUp_Content">Hoch</my:String>
+    <my:String x:Key="btnMoveDomainUp_ToolTip">Domain nach oben bewegen</my:String>
+    <my:String x:Key="btnMoveDomainDown_Content">Runter</my:String>
+    <my:String x:Key="btnMoveDomainDown_ToolTip">Domain nach unten bewegen</my:String>
+
+    <my:String x:Key="txtHostfileEditorEntry_Label_Comment">Kommentar</my:String>
+    <my:String x:Key="txtHostfileEditorEntry_BackgroundText_Comment">Bla bla</my:String>
+    <my:String x:Key="btnMoveCommentUp_Content">Hoch</my:String>
+    <my:String x:Key="btnMoveCommentUp_ToolTip">Kommentar nach oben bewegen</my:String>
+    <my:String x:Key="btnMoveCommentDown_Content">Runter</my:String>
+    <my:String x:Key="btnMoveCommentDown_ToolTip">Kommentar nach unten bewegen</my:String>
+
+    <my:String x:Key="btnToggleEditItemOff_Content">Bearbeiten</my:String>
+    <my:String x:Key="btnToggleEditItemOff_ToolTip">Diesen Eintrag bearbeiten</my:String>
+    <my:String x:Key="btnToggleEditItemOn_Content">übernehmen</my:String>
+    <my:String x:Key="btnToggleEditItemOn_ToolTip">Übernehmen Sie Ihre Änderungen oder drücken Sie die ESCAPE Taste um die Änderungen zu verwerfen.</my:String>
+
+    <my:String x:Key="btnEditorMenu_ReloadFromDisk_Content">Neu laden</my:String>
+    <my:String x:Key="btnEditorMenu_ReloadFromDisk_ToolTip">Die aktuelle Datei neu von der Festplatte einlesen</my:String>
+
+    <my:String x:Key="btnEditorMenu_ClearHosts_Content">Alle entfernen</my:String>
+    <my:String x:Key="btnEditorMenu_ClearHosts_ToolTip">Alle Einträge entfernen</my:String>
+
+    <my:String x:Key="btnEditorMenu_SaveChanges_Content">Speichern</my:String>
+    <my:String x:Key="btnEditorMenu_SaveChanges_ToolTip">Änderungen speichern</my:String>
+
+    <my:String x:Key="btnEditorMenu_AddGroup_Content">Gruppe hinzufügen</my:String>
+    <my:String x:Key="btnEditorMenu_AddGroup_ToolTip">Eine neue Gruppe hinzufügen</my:String>
+
+    <my:String x:Key="btnEditorMenu_AddComment_Content">Kommentar hinzufügen</my:String>
+    <my:String x:Key="btnEditorMenu_AddComment_ToolTip">Einen Kommentar hinzufügen</my:String>
+
+    <my:String x:Key="btnEditorMenu_AddHost_Content">Host Hinzufügen</my:String>
+    <my:String x:Key="btnEditorMenu_AddHost_ToolTip">Einen neuen Host hinzufügen</my:String>
+
+    <my:String x:Key="btnTextEditorMenu_ReloadFromDisk_Content">Neu laden</my:String>
+    <my:String x:Key="btnTextEditorMenu_ReloadFromDisk_ToolTip">Die aktuelle Datei neu von der Festplatte einlesen</my:String>
+    
+    <my:String x:Key="btnTextEditorMenu_SaveChanges_Content">Speichern</my:String>
+    <my:String x:Key="btnTextEditorMenu_SaveChanges_ToolTip">Speichert alle Änderungen</my:String>
+
+    <my:String x:Key="btnTextEditorMenu_ClearTextEditor_Content">Text Löschen</my:String>
+    <my:String x:Key="btnTextEditorMenu_ClearTextEditor_ToolTip">Löscht den aktuellen Text</my:String>
+
+    <my:String x:Key="btnAddGroup_Content">Gruppe hinzufügen</my:String>
+    <my:String x:Key="btnAddGroup_ToolTip">Eine neue Gruppe hinzufügen</my:String>
+
+    <my:String x:Key="btnAddComment_Content">Kommentar hinzufügen</my:String>
+    <my:String x:Key="btnAddComment_ToolTip">Einen Kommentar hinzufügen</my:String>
+
+    <my:String x:Key="btnAddHost_Content">Hinzufügen</my:String>
+    <my:String x:Key="btnAddHost_ToolTip">Einen neuen Host hinzufügen</my:String>
+    
+    <my:String x:Key="btnDeleteGroup_Content">Löschen</my:String>
+    <my:String x:Key="btnDeleteGroup_ToolTip">Diese Gruppe Löschen</my:String>
+
+    <my:String x:Key="btnAddDomainAddress_Content">Hinzufügen</my:String>
+    <my:String x:Key="btnAddDomainAddress_ToolTip">Einen neuen Host hinzufügen</my:String>
+    
+    <my:String x:Key="btnDeleteHost_Content">Löschen</my:String>
+    <my:String x:Key="btnDeleteHost_ToolTip">Diesen Host Löschen</my:String>
+
+    <my:String x:Key="btnDeleteDomain_Content">Löschen</my:String>
+    <my:String x:Key="btnDeleteDomain_ToolTip">Diese Domain entfernen</my:String>
+
+    <my:String x:Key="btnDeleteComment_Content">Löschen</my:String>
+    <my:String x:Key="btnDeleteComment_ToolTip">Diesen Kommentar entfernen</my:String>
+
+    <my:String x:Key="txtToggleModeLabel_Group">Group-Toggle-Mode</my:String>
+    <my:String x:Key="txtToggleModeTooltip_Group">Falls der Group-Toggle-Mode "aktiviert" ist kann zur Zeit nur eine Gruppe aktiv sein.</my:String>
+    <my:String x:Key="txtToggleModeLabel_Host">Host-Toggle-Mode</my:String>
+    <my:String x:Key="txtToggleModeTooltip_Host">Falls der Host-Toggle-Mode "aktiviert" ist kann zur Zeit nur ein Host aktiv sein.</my:String>
+    <my:String x:Key="btnToggleModeText_Enabled">an</my:String>
+    <my:String x:Key="btnToggleModeText_Disabled">aus</my:String>
+
+    <my:String x:Key="saveNewProfileDialogTitle">Geben Sie einen Profilnamen ein</my:String>
+    <my:String x:Key="saveNewProfileDialogConfirmButtonText">Profil speichern</my:String>
+    <my:String x:Key="saveNewProfileDialogAbortButtonText">Abbrechen</my:String>
+
+    <my:String x:Key="menuItemHeaderFile">_Datei</my:String>
+    <my:String x:Key="menuItemTooltipFile">Das Datei-Menü biete die Möglichkeit Profile zu laden, Änderungen zu speichern oder die Anwendung zu beenden.</my:String>
+
+    <my:String x:Key="menuItemHeaderFileSaveToHostsFile">In Hosts-Datei Speichern</my:String>
+    <my:String x:Key="menuItemTooltipFileSaveToHostsFile">Speichert die Änderungen in der Hosts-Datei Ihres Computers</my:String>
+
+    <my:String x:Key="menuItemHeaderFileSaveChanges">Änderungen speichern</my:String>
+    <my:String x:Key="menuItemTooltipFileSaveChanges">Speichert die Änderungen an der aktuell geöffneten Hosts-Datei</my:String>
+
+    <my:String x:Key="menuItemHeaderFileLoadProfile">Profile _laden</my:String>
+    <my:String x:Key="menuItemTooltipFileLoadProfile">Ein bestehendes Profil laden</my:String>
+
+    <my:String x:Key="menuItemHeaderFileSaveProfile">Profile _speichern</my:String>
+    <my:String x:Key="menuItemTooltipFileSaveProfile">Die aktuelle Hosts-Datei Konfiguration in einem Profil sichern</my:String>
+
+    <my:String x:Key="menuItemHeaderFileSaveNewProfile">_Neues Profil anlegen</my:String>
+    <my:String x:Key="menuItemTooltipFileSaveNewProfile">Die aktuelle Konfiguration in einem neuem Profil speichern</my:String>
+
+    <my:String x:Key="menuItemHeaderFileSaveOverwriteExistingProfile">Profil _überschreiben</my:String>
+    <my:String x:Key="menuItemTooltipFileSaveOverwriteExistingProfile">Die aktuelle Konfiguration in einem bereits bestehendem Profil speichern</my:String>
+
+    <my:String x:Key="menuItemHeaderFileDeleteProfile">Profil _löschen</my:String>
+    <my:String x:Key="menuItemTooltipFileDeleteProfile">Ein ausgewähltes Profil löschen</my:String>
+
+    <my:String x:Key="menuItemHeaderFileDeleteProfileDeleteAll">_Alle Profile löschen</my:String>
+    <my:String x:Key="menuItemTooltipFileDeleteProfileDeleteAll">Löscht alle Profile</my:String>
+
+    <my:String x:Key="menuItemHeaderFileDeleteProfileDeleteSpecific">_Gezielt löschen</my:String>
+    <my:String x:Key="menuItemTooltipFileDeleteProfileDeleteSpecific">Ein bestimmtes Profil löschen</my:String>
+
+    <my:String x:Key="menuItemHeaderFileExit">Beenden</my:String>
+    <my:String x:Key="menuItemTooltipFileExit">Diese Anwendung beenden</my:String>
+
+    <my:String x:Key="menuItemHeaderView">_Ansichten</my:String>
+    <my:String x:Key="menuItemTooltipView">Zwischen verschiedenen Ansichten auf die aktuelle Hosts-Datei wählen</my:String>
+
+    <my:String x:Key="menuItemHeaderSwitchViewToggleView">_Übersicht</my:String>
+    <my:String x:Key="menuItemTooltipSwitchViewToggleView">Eine Übersicht über alle Hosts-Gruppen die es ermöglicht schnell und gezielt Gruppen zu aktivieren bzw. zu deaktivieren</my:String>
+
+    <my:String x:Key="menuItemHeaderSwitchViewEditor">Editor</my:String>
+    <my:String x:Key="menuItemTooltipSwitchViewEditor">Ein Editor der es erlaubt die Einträge in der aktuellen Hosts-Datei zu bearbeiten</my:String>
+
+    <my:String x:Key="menuItemHeaderSwitchViewTextEditor">_Text Editor</my:String>
+    <my:String x:Key="menuItemTooltipSwitchViewTextEditor">Eine einfache Text-Ansicht auf die aktuell ausgewählte Hosts-Datei</my:String>
+
+    <my:String x:Key="menuItemHeaderHelp">_Hilfe</my:String>
+    <my:String x:Key="menuItemTooltipHelp">Informationen zu dieser Anwendungen</my:String>
+
+    <my:String x:Key="menuItemHeaderSelectLanguage">_Sprache</my:String>
+
+    <my:String x:Key="menuItemHeaderHelpAboutApplication">_Über dieses Programm</my:String>
+    <my:String x:Key="menuItemTooltipHelpAboutApplication">Informationen zu dieser Anwendung</my:String>
+
+    <my:String x:Key="StatusBarLabelTargetPath">Ziel Datei</my:String>
+
+    <my:String x:Key="cultureChangedDialogTitle">Sprache der Benutzeroberfläche geändert</my:String>
+    <my:String x:Key="cultureChangedDialogMessage">Sie haben soeben eine andere Sprache ausgewählt. Die Änderung wird erst nach einem Neustart wirksam werden.</my:String>
+    <my:String x:Key="cultureChangedDialogConfirmButtonText">Neu starten</my:String>
+    <my:String x:Key="cultureChangedDialogCancelButtonText">Später</my:String>
+
+    <my:String x:Key="txtOverviewEmptyText_NoItems">Keine Einträge.</my:String>
+    <my:String x:Key="txtOverviewEmptyText_GotoEditorView">Gehe zur Editor- oder Text-Ansicht um die aktuelle Hosts-Datei zu bearbeiten.</my:String>
+    <my:String x:Key="txtOverviewEmptyText_GotoEditorViewButtonLabelEditorView">Editor Ansicht</my:String>
+    <my:String x:Key="txtOverviewEmptyText_GotoEditorViewButtonLabelTextEditorView">Text-Editor Ansicht</my:String>
+
+    <my:String x:Key="txtEditorViewEmptyText_NoItems">Keine Einträge.</my:String>
+    <my:String x:Key="txtEditorViewEmptyText_Hint">Benutze die Buttons auf der linken Seite (&#8598;) um einen oder mehrere Hosts, Kommentare oder Gruppen hinzuzufügen.</my:String>
+
+    <my:String x:Key="txtEditorViewEmptyText_ExtraButtonHint">Du kannst auch einen dieser Buttons (&#8595;) nutzen um Einträge zu Deiner aktuellen Hosts-Datei hinzuzufügen:</my:String>
+    <my:String x:Key="txtEditorViewEmptyText_Button_AddEmpty_Group">Gruppe hinzufügen</my:String>
+    <my:String x:Key="txtEditorViewEmptyText_Button_AddEmpty_Host">Host hinzufügen</my:String>
+    <my:String x:Key="txtEditorViewEmptyText_Button_AddEmpty_Comment">Kommentar hinzufügen</my:String>
+
+    <my:String x:Key="txtEditorViewEmptyText_RestoreDefaultHint">Oder du kannst die Windows Standard Hosts-Datei wiederherstellen:</my:String>
+    <my:String x:Key="txtEditorViewEmptyText_Button_RestoreDefaultHostsFile">Standard Hosts-Datei laden</my:String>
+
+    <my:String x:Key="txtTextViewEmptyText_NoText">Deine Hosts-Datei ist zur Zeit leer.</my:String>
+    <my:String x:Key="txtTextViewEmptyText_Hint">Klicke irgendwo auf diese Nachricht um den Text-Editor zu aktivieren oder benutze den untenstehenden Button (&#8595;) um den Inhalt der Standard Windows Hosts-Datei zu laden:</my:String>
+    <my:String x:Key="txtTextViewEmptyText_InitializationText"># Dein Text</my:String>
+    <my:String x:Key="txtTextViewEmptyText_Button_RestoreDefaultHostsFile">Standard Hosts-Datei Inhalt laden</my:String>
+
+    <my:String x:Key="MainWindowToolBar_ViewModes_ToolbarLabel">Ansichten</my:String>
+    <my:String x:Key="MainWindowToolBar_ViewModes_Button_Overview_Content">Übersicht</my:String>
+    <my:String x:Key="MainWindowToolBar_ViewModes_Button_Overview_ToolTip">Wechsle zur Übersicht</my:String>
+    <my:String x:Key="MainWindowToolBar_ViewModes_Button_Editor_Content">Editor</my:String>
+    <my:String x:Key="MainWindowToolBar_ViewModes_Button_Editor_ToolTip">Wechsle zum Editor</my:String>
+    <my:String x:Key="MainWindowToolBar_ViewModes_Button_TextEditor_Content">Text</my:String>
+    <my:String x:Key="MainWindowToolBar_ViewModes_Button_TextEditor_ToolTip">Wechlse zur Text-Ansicht</my:String>    
+</ResourceDictionary>

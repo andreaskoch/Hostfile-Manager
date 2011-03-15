@@ -1,0 +1,25 @@
+﻿<Window x:Class="HostfileManager.UI.Dialogs.SaveProfileDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Dialogs="clr-namespace:HostfileManager.UI.Dialogs"
+        Closing="WindowClosing"
+        FocusManager.FocusedElement="{Binding ElementName=txtInput}"
+        Width="350" Height="75" Background="{StaticResource DialogWindowBackgroundColor}"
+        ResizeMode="NoResize" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" WindowStyle="ToolWindow" Topmost="True">
+    <Window.CommandBindings>
+        <CommandBinding Command="Dialogs:SaveProfileDialog.ConfirmCommand" CanExecute="CommandBindingConfirmCanExecute" Executed="CommandBindingConfirmExecuted" />
+        <CommandBinding Command="Dialogs:SaveProfileDialog.CancelCommand" CanExecute="CommandBindingCancelCanExecute" Executed="CommandBindingCancelExecuted" />
+    </Window.CommandBindings>
+
+    <DockPanel Margin="20,10,20,0" LastChildFill="True">
+        <WrapPanel Margin="10,0,0,0" DockPanel.Dock="Right">
+            <Button Name="btnConfirm" Content="OK" Command="Dialogs:SaveProfileDialog.ConfirmCommand" IsDefault="True" FontSize="16" Padding="5,2,5,2"/>
+            <Button Name="btnCancel" Content="Cancel" Command="Dialogs:SaveProfileDialog.CancelCommand" FontSize="12" Foreground="#FF3E3939" Margin="5,0,0,0" Padding="5,2,5,2"/>
+        </WrapPanel>
+
+        <StackPanel>
+            <TextBox Name="txtInput" HorizontalContentAlignment="Stretch" FontSize="16" FontWeight="Bold" Padding="0,2,0,2">
+            </TextBox>
+        </StackPanel>
+    </DockPanel>
+</Window>

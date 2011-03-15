@@ -1,0 +1,251 @@
+﻿<!-- Hostfile Manager Translations: en-US -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:my="clr-namespace:System;assembly=mscorlib">
+    <my:String x:Key="AboutWindowApplicationTitle">Hostfile Manager</my:String>
+    <my:String x:Key="AboutWindowApplicationDescription">The Hostfile Manager is a free and simple .NET 4.0 based WPF application that allows you to view, edit and manage your local machines' hosts file.</my:String>
+    <my:String x:Key="AboutWindowApplicationDeveloper" xml:space="preserve">Mahalo&#x0a; &#x2013; Andreas Koch</my:String>
+    <my:String x:Key="AboutWindowApplicationWebsiteHint">For further documentation, the source code or the latest version of this application go to my website:</my:String>
+    <my:String x:Key="AboutWindowApplicationUrl">http://andykdocs.de/andykdocs/document/Windows-Hostfile-Manager</my:String>
+    <my:String x:Key="AboutWindowApplicationUrlText">http://andykdocs.de/Windows-Hostfile-Manager</my:String>
+
+    <my:String x:Key="Hostfile_DefaultText" xml:space="preserve"># Copyright (c) 1993-2006 Microsoft Corp.
+#
+# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+#
+# This file contains the mappings of IP addresses to host names. Each
+# entry should be kept on an individual line. The IP address should
+# be placed in the first column followed by the corresponding host name.
+# The IP address and the host name should be separated by at least one
+# space.
+#
+# Additionally, comments (such as these) may be inserted on individual
+# lines or following the machine name denoted by a '#' symbol.
+#
+# For example:
+
+# source server
+# 102.54.94.97     rhino.acme.com
+
+# x client host
+# 38.25.63.10     x.acme.com
+
+# This machine
+127.0.0.1       localhost localhost.com www.localhost.com me
+
+
+</my:String>
+    
+    <my:String x:Key="HostsGroupName_Default">default</my:String>
+    <my:String x:Key="HostIp_Default">127.0.0.1</my:String>
+    <my:String x:Key="DomainName_Default">example.com</my:String>
+    <my:String x:Key="CommentValue_Default">Lorem Ipsum</my:String>
+
+    <my:String x:Key="jumplistGroupLoadProfile">Load Hostfile Profile</my:String>
+    <my:String x:Key="jumplistGroupActions">Actions</my:String>
+
+    <my:String x:Key="jumplistActionTitleLoadProfile">Load profile "{0}"</my:String>
+    <my:String x:Key="jumplistActionDescriptionLoadProfile">Load hostfile profile "{0}"</my:String>
+
+    <my:String x:Key="jumplistActionTitleOpenProfileDirectory">Open profile directory</my:String>
+    <my:String x:Key="jumplistActionDescriptionOpenProfileDirectory">Open your host file profile directory</my:String>
+    
+    <my:String x:Key="jumplistActionTitleResetApplicationSettings">Reset application settings</my:String>
+    <my:String x:Key="jumplistActionDescriptionResetApplicationSettings">Delete the application settings file for the current Hostfile Manager instance</my:String>
+
+    <my:String x:Key="btnToggleGroupStatusOff_Content">activate</my:String>
+    <my:String x:Key="btnToggleGroupStatusOff_ToolTip">Activate this group</my:String>
+    <my:String x:Key="btnToggleGroupStatusOn_Content">de-activate</my:String>
+    <my:String x:Key="btnToggleGroupStatusOn_ToolTip">De-activate this group</my:String>
+
+    <my:String x:Key="btnToggleHostStatusOff_Content">activate</my:String>
+    <my:String x:Key="btnToggleHostStatusOff_ToolTip">Activate this host</my:String>
+    <my:String x:Key="btnToggleHostStatusOn_Content">de-activate</my:String>
+    <my:String x:Key="btnToggleHostStatusOn_ToolTip">De-activate this host</my:String>
+
+    <my:String x:Key="txtHostfileEditorEntry_Label_Group">Group</my:String>
+    <my:String x:Key="txtHostfileEditorEntry_BackgroundText_Group">Group name</my:String>
+    <my:String x:Key="txtHostfileEditorEntry_BackgroundText_GroupDescription">e.g. Development-Environment 01</my:String>
+    <my:String x:Key="txtHostfileEditorEntry_BackgroundText_GroupDescriptionPlaceholder">Some Group (click to edit description)</my:String>
+    <my:String x:Key="btnMoveGroupUp_Content">up</my:String>
+    <my:String x:Key="btnMoveGroupUp_ToolTip">Move group up</my:String>
+    <my:String x:Key="btnMoveGroupDown_Content">down</my:String>
+    <my:String x:Key="btnMoveGroupDown_ToolTip">Move group down</my:String>
+
+    <my:String x:Key="txtHostfileEditorEntry_Label_Host">Host</my:String>
+    <my:String x:Key="txtHostfileEditorEntry_BackgroundText_Host">e.g. 127.0.0.1</my:String>
+    <my:String x:Key="txtHostfileEditorEntry_BackgroundText_HostDescription">e.g. Development-Environment 01</my:String>
+    <my:String x:Key="txtHostfileEditorEntry_BackgroundText_HostDescriptionPlaceholder">Some Host (click to edit description)</my:String>
+    <my:String x:Key="btnMoveHostUp_Content">up</my:String>
+    <my:String x:Key="btnMoveHostUp_ToolTip">Move host up</my:String>
+    <my:String x:Key="btnMoveHostDown_Content">down</my:String>
+    <my:String x:Key="btnMoveHostDown_ToolTip">Move host down</my:String>
+
+    <my:String x:Key="txtHostfileEditorEntry_Label_Domain">Domain</my:String>
+    <my:String x:Key="txtHostfileEditorEntry_BackgroundText_Domain">e.g. example.com</my:String>
+    <my:String x:Key="btnMoveDomainUp_Content">up</my:String>
+    <my:String x:Key="btnMoveDomainUp_ToolTip">Move domain up</my:String>
+    <my:String x:Key="btnMoveDomainDown_Content">down</my:String>
+    <my:String x:Key="btnMoveDomainDown_ToolTip">Move domain down</my:String>
+
+    <my:String x:Key="txtHostfileEditorEntry_Label_Comment">Comment</my:String>
+    <my:String x:Key="txtHostfileEditorEntry_BackgroundText_Comment">Yada yada</my:String>
+    <my:String x:Key="btnMoveCommentUp_Content">up</my:String>
+    <my:String x:Key="btnMoveCommentUp_ToolTip">Move comment up</my:String>
+    <my:String x:Key="btnMoveCommentDown_Content">down</my:String>
+    <my:String x:Key="btnMoveCommentDown_ToolTip">Move comment down</my:String>
+
+    <my:String x:Key="btnToggleEditItemOff_Content">edit</my:String>
+    <my:String x:Key="btnToggleEditItemOff_ToolTip">Edit this item</my:String>
+    <my:String x:Key="btnToggleEditItemOn_Content">apply</my:String>
+    <my:String x:Key="btnToggleEditItemOn_ToolTip">Apply your changes or hit 'ESC' to discard your changes</my:String>
+
+    <my:String x:Key="btnEditorMenu_ReloadFromDisk_Content">reload</my:String>
+    <my:String x:Key="btnEditorMenu_ReloadFromDisk_ToolTip">Reload hosts from disk</my:String>
+
+    <my:String x:Key="btnEditorMenu_ClearHosts_Content">clear hosts</my:String>
+    <my:String x:Key="btnEditorMenu_ClearHosts_ToolTip">Remove all entries</my:String>
+
+    <my:String x:Key="btnEditorMenu_SaveChanges_Content">save</my:String>
+    <my:String x:Key="btnEditorMenu_SaveChanges_ToolTip">Save changes</my:String>
+
+    <my:String x:Key="btnEditorMenu_AddGroup_Content">add group</my:String>
+    <my:String x:Key="btnEditorMenu_AddGroup_ToolTip">Add a new group</my:String>
+
+    <my:String x:Key="btnEditorMenu_AddComment_Content">add comment</my:String>
+    <my:String x:Key="btnEditorMenu_AddComment_ToolTip">Add a new comment</my:String>
+
+    <my:String x:Key="btnEditorMenu_AddHost_Content">add host</my:String>
+    <my:String x:Key="btnEditorMenu_AddHost_ToolTip">Add a host to the current hosts file</my:String>
+
+    <my:String x:Key="btnTextEditorMenu_ReloadFromDisk_Content">Reload from disk</my:String>
+    <my:String x:Key="btnTextEditorMenu_ReloadFromDisk_ToolTip">Reload hosts from disk</my:String>    
+    
+    <my:String x:Key="btnTextEditorMenu_SaveChanges_Content">Save changes</my:String>
+    <my:String x:Key="btnTextEditorMenu_SaveChanges_ToolTip">Save all changes</my:String>
+
+    <my:String x:Key="btnTextEditorMenu_ClearTextEditor_Content">Clear content</my:String>
+    <my:String x:Key="btnTextEditorMenu_ClearTextEditor_ToolTip">Clear the text-editor content</my:String>
+
+    <my:String x:Key="btnAddGroup_Content">add group</my:String>
+    <my:String x:Key="btnAddGroup_ToolTip">Add a new group</my:String>
+
+    <my:String x:Key="btnAddComment_Content">add comment</my:String>
+    <my:String x:Key="btnAddComment_ToolTip">Add a new comment</my:String>
+
+    <my:String x:Key="btnAddHost_Content">add</my:String>
+    <my:String x:Key="btnAddHost_ToolTip">Add a host to this group</my:String>
+    
+    <my:String x:Key="btnDeleteGroup_Content">del</my:String>
+    <my:String x:Key="btnDeleteGroup_ToolTip">Delete this group of hosts</my:String>
+
+    <my:String x:Key="btnAddDomainAddress_Content">add</my:String>
+    <my:String x:Key="btnAddDomainAddress_ToolTip">Add a domain to this host</my:String>
+    
+    <my:String x:Key="btnDeleteHost_Content">del</my:String>
+    <my:String x:Key="btnDeleteHost_ToolTip">Delete this host</my:String>
+
+    <my:String x:Key="btnDeleteDomain_Content">del</my:String>
+    <my:String x:Key="btnDeleteDomain_ToolTip">Delete this domain</my:String>
+
+    <my:String x:Key="btnDeleteComment_Content">del</my:String>
+    <my:String x:Key="btnDeleteComment_ToolTip">Delete this comment</my:String>
+
+    <my:String x:Key="txtToggleModeLabel_Group">Group-Toggle-Mode</my:String>
+    <my:String x:Key="txtToggleModeTooltip_Group">If the Group-Toggle-Mode is "enabled" you can only have one active group at a time.</my:String>
+    <my:String x:Key="txtToggleModeLabel_Host">Host-Toggle-Mode</my:String>
+    <my:String x:Key="txtToggleModeTooltip_Host">If the Host-Toggle-Mode is "enabled" you can only have one active host at a time.</my:String>    
+    <my:String x:Key="btnToggleModeText_Enabled">enabled</my:String>
+    <my:String x:Key="btnToggleModeText_Disabled">disabled</my:String>
+
+    <my:String x:Key="saveNewProfileDialogTitle">Enter a profile name</my:String>
+    <my:String x:Key="saveNewProfileDialogConfirmButtonText">Save profile</my:String>
+    <my:String x:Key="saveNewProfileDialogAbortButtonText">Abort</my:String>
+
+    <my:String x:Key="menuItemHeaderFile">_File</my:String>
+    <my:String x:Key="menuItemTooltipFile">The file-menu allows you to load other profile, save your changes or end this application.</my:String>
+
+    <my:String x:Key="menuItemHeaderFileSaveToHostsFile">Save to hosts file</my:String>
+    <my:String x:Key="menuItemTooltipFileSaveToHostsFile">Save the changes to your computer's hosts file</my:String>
+
+    <my:String x:Key="menuItemHeaderFileSaveChanges">Save changes</my:String>
+    <my:String x:Key="menuItemTooltipFileSaveChanges">Save the changes to the currently opened hosts-file</my:String>
+
+    <my:String x:Key="menuItemHeaderFileLoadProfile">_Load Profile</my:String>
+    <my:String x:Key="menuItemTooltipFileLoadProfile">Load an existing hosts-file profile</my:String>
+
+    <my:String x:Key="menuItemHeaderFileSaveProfile">_Save Profile</my:String>
+    <my:String x:Key="menuItemTooltipFileSaveProfile">Store the current hosts-file configuration in a seperate hosts-file profile</my:String>
+
+    <my:String x:Key="menuItemHeaderFileSaveNewProfile">Save New</my:String>
+    <my:String x:Key="menuItemTooltipFileSaveNewProfile">Save the current configuration to a new profile</my:String>
+
+    <my:String x:Key="menuItemHeaderFileSaveOverwriteExistingProfile">_Overwrite</my:String>
+    <my:String x:Key="menuItemTooltipFileSaveOverwriteExistingProfile">Save your current configuration to an existing hosts-file profile</my:String>
+
+    <my:String x:Key="menuItemHeaderFileDeleteProfile">_Delete Profile</my:String>
+    <my:String x:Key="menuItemTooltipFileDeleteProfile">Delete a specific hosts-file profile</my:String>
+
+    <my:String x:Key="menuItemHeaderFileDeleteProfileDeleteAll">Delete _all</my:String>
+    <my:String x:Key="menuItemTooltipFileDeleteProfileDeleteAll">Delete all hosts-file profiles</my:String>
+
+    <my:String x:Key="menuItemHeaderFileDeleteProfileDeleteSpecific">Delete _specific</my:String>
+    <my:String x:Key="menuItemTooltipFileDeleteProfileDeleteSpecific">Delete a specific hosts-file profile</my:String>
+
+    <my:String x:Key="menuItemHeaderFileExit">Exit</my:String>
+    <my:String x:Key="menuItemTooltipFileExit">End this application</my:String>
+
+    <my:String x:Key="menuItemHeaderView">_Views</my:String>
+    <my:String x:Key="menuItemTooltipView">Switch between different views on your current hosts file</my:String>
+
+    <my:String x:Key="menuItemHeaderSwitchViewToggleView">_Overview</my:String>
+    <my:String x:Key="menuItemTooltipSwitchViewToggleView">The overview enables you to quickly activate or deactivate certain hosts-file entries</my:String>
+
+    <my:String x:Key="menuItemHeaderSwitchViewEditor">_Editor</my:String>
+    <my:String x:Key="menuItemTooltipSwitchViewEditor">The editor view allows you to manipulate the entries in your current hosts-file</my:String>
+
+    <my:String x:Key="menuItemHeaderSwitchViewTextEditor">_Text Editor</my:String>
+    <my:String x:Key="menuItemTooltipSwitchViewTextEditor">View the current hosts-file in a simple text-editor</my:String>
+
+    <my:String x:Key="menuItemHeaderHelp">_Help</my:String>
+    <my:String x:Key="menuItemTooltipHelp">Information about this application</my:String>
+
+    <my:String x:Key="menuItemHeaderSelectLanguage">_Language</my:String>
+
+    <my:String x:Key="menuItemHeaderHelpAboutApplication">_About this application</my:String>
+    <my:String x:Key="menuItemTooltipHelpAboutApplication">Learn more about this program</my:String>
+
+    <my:String x:Key="StatusBarLabelTargetPath">Target path</my:String>
+
+    <my:String x:Key="cultureChangedDialogTitle">Application language changed</my:String>
+    <my:String x:Key="cultureChangedDialogMessage">You just changed the user-interface language. The change will take effect after you restart the application.</my:String>
+    <my:String x:Key="cultureChangedDialogConfirmButtonText">Restart now</my:String>
+    <my:String x:Key="cultureChangedDialogCancelButtonText">Later</my:String>
+
+    <my:String x:Key="txtOverviewEmptyText_NoItems">No Items.</my:String>
+    <my:String x:Key="txtOverviewEmptyText_GotoEditorView">Go to the editor or text-editor view to add some entries to your current hosts file.</my:String>
+    <my:String x:Key="txtOverviewEmptyText_GotoEditorViewButtonLabelEditorView">Editor View</my:String>
+    <my:String x:Key="txtOverviewEmptyText_GotoEditorViewButtonLabelTextEditorView">Text-Editor View</my:String>
+
+    <my:String x:Key="txtEditorViewEmptyText_NoItems">No Items.</my:String>
+    <my:String x:Key="txtEditorViewEmptyText_Hint">Use the buttons on the left (&#8598;) to add one or more hosts, comments or groups.</my:String>
+
+    <my:String x:Key="txtEditorViewEmptyText_ExtraButtonHint">You can also use one of the buttons below (&#8595;) to add some entries to your current hosts file:</my:String>
+    <my:String x:Key="txtEditorViewEmptyText_Button_AddEmpty_Group">Add an empty Group</my:String>
+    <my:String x:Key="txtEditorViewEmptyText_Button_AddEmpty_Host">Add a host</my:String>
+    <my:String x:Key="txtEditorViewEmptyText_Button_AddEmpty_Comment">Add a comment</my:String>
+    
+    <my:String x:Key="txtEditorViewEmptyText_RestoreDefaultHint">Or you can load Windows' default hosts file:</my:String>
+    <my:String x:Key="txtEditorViewEmptyText_Button_RestoreDefaultHostsFile">Load default hosts-file</my:String>
+
+    <my:String x:Key="txtTextViewEmptyText_NoText">Your hosts-file is currently empty.</my:String>
+    <my:String x:Key="txtTextViewEmptyText_Hint">Click somewhere on this message to enable text editing or use the button below (&#8595;) to load the content of Windows' default hosts file:</my:String>
+    <my:String x:Key="txtTextViewEmptyText_InitializationText"># Your Text</my:String>
+    <my:String x:Key="txtTextViewEmptyText_Button_RestoreDefaultHostsFile">Load default hosts-file content</my:String>
+
+    <my:String x:Key="MainWindowToolBar_ViewModes_ToolbarLabel">View Modes</my:String>
+    <my:String x:Key="MainWindowToolBar_ViewModes_Button_Overview_Content">Overview</my:String>
+    <my:String x:Key="MainWindowToolBar_ViewModes_Button_Overview_ToolTip">Switch to overview-mode</my:String>
+    <my:String x:Key="MainWindowToolBar_ViewModes_Button_Editor_Content">Editor</my:String>
+    <my:String x:Key="MainWindowToolBar_ViewModes_Button_Editor_ToolTip">Switch to editor-mode</my:String>
+    <my:String x:Key="MainWindowToolBar_ViewModes_Button_TextEditor_Content">Text</my:String>
+    <my:String x:Key="MainWindowToolBar_ViewModes_Button_TextEditor_ToolTip">Switch to text-editor-mode</my:String>
+</ResourceDictionary>

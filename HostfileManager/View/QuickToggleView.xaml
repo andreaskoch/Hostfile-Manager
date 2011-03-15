@@ -1,0 +1,149 @@
+﻿<UserControl x:Class="HostfileManager.View.QuickToggleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Model="clr-namespace:HostfileManager.Model"
+             xmlns:Views="clr-namespace:HostfileManager.View"
+             mc:Ignorable="d" d:DesignHeight="395" d:DesignWidth="545">
+    <Grid>
+        <Grid.CommandBindings>
+            <CommandBinding Command="Views:QuickToggleView.ToggleItemStatusCommand" CanExecute="CommandBindingToggleItemStatusCanExecute" Executed="CommandBindingToggleItemStatusExecuted"/>
+
+            <CommandBinding Command="Views:QuickToggleView.SwitchToEditorViewCommand" CanExecute="CommandBindingSwitchViewCanExecute" Executed="CommandBindingSwitchToEditorExecuted" />
+            <CommandBinding Command="Views:QuickToggleView.SwitchToTextEditorCommand" CanExecute="CommandBindingSwitchViewCanExecute" Executed="CommandBindingSwitchToTextEditorExecuted" />
+        </Grid.CommandBindings>
+
+        <Grid.Resources>
+
+            <!-- Host Template -->
+            <DataTemplate DataType="{x:Type Model:Host}">
+
+                <DockPanel>
+
+                    <WrapPanel VerticalAlignment="Center">
+                        <Border Background="{Binding Path=ActiveRate, Mode=OneWay, Converter={StaticResource ActiveStateToColorConverter}, ConverterParameter={StaticResource ActivatableItemBackgroundLinearGradientBrush}}" BorderBrush="Black" BorderThickness="1,1,0,1" CornerRadius="10,0,0,10" Padding="5,5,0,5" MinWidth="275" Margin="0,15,0,15">
+
+                            <DockPanel>
+
+                                <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Path=Name, Mode=OneWay}" FontSize="20" />
+                                </WrapPanel>
+
+                                <WrapPanel Margin="25,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                    <Button Style="{StaticResource ToggleHostStatusButtonStyle}" Command="Views:QuickToggleView.ToggleItemStatusCommand" CommandParameter="{Binding}" HorizontalContentAlignment="Center" HorizontalAlignment="Right"/>
+                                </WrapPanel>
+
+                            </DockPanel>
+
+                        </Border>
+                    </WrapPanel>
+
+                    <WrapPanel VerticalAlignment="Center">
+                        <TextBlock Text="{StaticResource txtHostfileEditorEntry_Label_Host}" TextAlignment="Center" Margin="5,0,0,0" FontSize="14" Foreground="#FFAD9393" FontStretch="Medium">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="90" />
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </WrapPanel>
+
+                </DockPanel>
+
+            </DataTemplate>
+
+            <!-- HostGroup Template -->
+            <DataTemplate DataType="{x:Type Model:HostGroup}">
+
+                <DockPanel>
+                    
+                    <WrapPanel VerticalAlignment="Center">
+                        <Border Background="{Binding Path=ActiveRate, Mode=OneWay, Converter={StaticResource ActiveStateToColorConverter}, ConverterParameter={StaticResource ActivatableItemBackgroundLinearGradientBrush}}" BorderBrush="Black" BorderThickness="1,1,0,1" CornerRadius="10,0,0,10" Padding="5,5,0,5" MinWidth="275" Margin="0,15,0,15">
+                        
+                            <DockPanel>
+
+                                <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Path=Name, Mode=OneWay}" FontSize="20" />
+                                </WrapPanel>
+
+                                <WrapPanel Margin="25,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                    <Button Style="{StaticResource ToggleGroupStatusButtonStyle}" Command="Views:QuickToggleView.ToggleItemStatusCommand" CommandParameter="{Binding}" HorizontalContentAlignment="Center" HorizontalAlignment="Right"/>
+                                </WrapPanel>
+
+                            </DockPanel>
+                        
+                        </Border>
+                    </WrapPanel>
+
+                    <WrapPanel VerticalAlignment="Center">
+                        <TextBlock Text="{StaticResource txtHostfileEditorEntry_Label_Group}" TextAlignment="Center" Margin="5,0,0,0" FontSize="14" Foreground="#FFAD9393" FontStretch="Medium">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="90" />
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </WrapPanel>
+
+                </DockPanel>
+                
+            </DataTemplate>
+
+        </Grid.Resources>
+        
+        <Grid.Height>
+            <Binding Path="ActualHeight" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}"/>
+        </Grid.Height>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="650*"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Margin="{StaticResource ViewContainerMargin}" Padding="{StaticResource ViewContainerPadding}">
+
+            <ScrollViewer Padding="10" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl ItemsSource="{Binding HostFileInstance.Childs.Activatable}" Margin="0,0,0,75">
+                    
+                    <!-- Empty Template -->
+                    <ItemsControl.Style>
+                        <Style TargetType="ItemsControl" >
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Items.Count, RelativeSource={RelativeSource Self}}" Value="0">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                
+                                                <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                            
+                                                        <StackPanel HorizontalAlignment="Center" Margin="0,0,0,15">
+                                                            <TextBlock Text="{StaticResource txtOverviewEmptyText_NoItems}" TextWrapping="Wrap" FontSize="16" />
+                                                        </StackPanel>
+
+                                                        <StackPanel HorizontalAlignment="Center" Opacity="0.75">
+                                                            <TextBlock Text="{StaticResource txtOverviewEmptyText_GotoEditorView}" TextWrapping="Wrap" FontSize="14" />
+
+                                                            <WrapPanel HorizontalAlignment="Center" Margin="0,10,0,0">
+                                                                <Button Content="{StaticResource txtOverviewEmptyText_GotoEditorViewButtonLabelEditorView}" Width="125" FontSize="12" Command="Views:QuickToggleView.SwitchToEditorViewCommand" />
+                                                                <Button Content="{StaticResource txtOverviewEmptyText_GotoEditorViewButtonLabelTextEditorView}" Margin="25,0,0,0" Width="125" FontSize="12" Command="Views:QuickToggleView.SwitchToTextEditorCommand" />
+                                                            </WrapPanel>
+                                                        </StackPanel>
+                                                            
+                                                    </StackPanel>
+
+                                                </Border>
+                                                
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ItemsControl.Style>
+                    
+                </ItemsControl>
+            </ScrollViewer>
+
+        </Border>
+
+    </Grid>
+</UserControl>
