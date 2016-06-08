@@ -1,23 +1,5 @@
-﻿HOSTFILE MANAGER
+# Windows Hostfile Manager
 
-Version: 1.0
-Author: Andreas Koch
-Application Website: http://andykdocs.de/andykdocs/document/Windows-Hostfile-Manager
-Contact Information: http://andykdocs.de/andykdocs/document/Contact-Andreas-Koch
+The Hostfile Manager is a free and simple .NET 4.0 based WPF application that allows you to view, edit and manage your local machines' hosts file.
 
-
-:: English ::
-The Hostfile Manager is a free and simple .NET 4.0 based WPF application
-that allows you to view, edit and manage your local machines' hosts file.
-
-For further documentation, the source code or the latest version of this
-application go to my website.
-
-
-:: Deutsch ::
-Der Hostfile Manager ist eine kostenlose und einfache .NET basierte WPF
-Anwendung die es Ihnen ermöglicht Ihre lokale Hosts-Datei zu visualisieren,
-zu editieren und zu verwalten.
-
-Für weitere Informationen zum Hostfile Manager besuchen Sie die Webseite
-zum Tool.
+For further documentation, the source code or the latest version of this application go to my website: [AndyK Docs » Development » Windows Hostfile Manager](https://andykdocs.de/development/Windows+Hostfile+Manager)
